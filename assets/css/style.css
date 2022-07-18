@@ -1,0 +1,304 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  box-sizing: border-box;
+  color: #374151;
+}
+body {
+  padding: 0 15%;
+  font-family: "Outfit", sans-serif;
+  background-color: aliceblue;
+  position: relative;
+  height: 100vh;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+.logo {
+  display: flex;
+  padding: 15px 0;
+  justify-content: space-between;
+}
+h2 {
+  color: #374151;
+  line-height: 50px;
+  margin-left: 10px;
+  font-size: 1.7rem;
+}
+.flip {
+  transform: scaleX(-1);
+}
+.search-bar {
+  display: flex;
+  margin-bottom: 10px;
+}
+.search-input-container {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e27440;
+  border-radius: 5px;
+}
+.search-input-container input {
+  width: 85%;
+  margin-left: 10px;
+}
+
+.search-input-container input::-webkit-search-cancel-button {
+  visibility: hidden;
+}
+.search-input-container input,
+.search-input-container input:focus {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+main {
+  height: 53vh;
+  padding: 10px;
+  overflow: scroll;
+}
+
+main::-webkit-scrollbar {
+  width: 0.6rem;
+}
+main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #e27440;
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+main ul li {
+  margin: 20px;
+}
+main .info h4 {
+  font-size: 22px;
+}
+main .info p {
+  font-size: 16px;
+}
+main .actions button {
+  min-width: 33px;
+  height: 33px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 1.1rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+main .actions button:hover {
+  transform: translateY(-3px);
+}
+main .actions button i {
+  color: white;
+}
+
+main button.delete {
+  background-color: #ef4444;
+}
+main button.complete {
+  background-color: #5d2e8c;
+}
+main button.reading {
+  background-color: #5d2e8c;
+}
+
+nav {
+  position: relative;
+  bottom: 0;
+  padding: 20px 0;
+  width: 100%;
+}
+
+nav button {
+  background-color: transparent;
+  color: #374151;
+  padding: 10px;
+  border-radius: 10px;
+  flex: 1;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+nav .add-book-container {
+  display: flex;
+}
+
+nav .add-book-container button:hover {
+  box-shadow: 0 0 5px 5px rgba(226, 116, 64, 0.3);
+  transform: translateY(-3px);
+}
+
+nav button.active {
+  background-color: #e27440;
+  color: aliceblue;
+}
+nav .action {
+  display: flex;
+}
+nav .action button {
+  margin: 0 1px;
+}
+
+.bg-close {
+  z-index: 998;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.popup-add-book {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.popup-add-book.active {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-add-book .popup-container {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.popup-add-book h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 15px 0 25px;
+}
+.popup-add-book label {
+  font-size: 18px;
+}
+
+.popup-add-book input[type="number"],
+.popup-add-book input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #374151;
+  border-radius: 5px;
+  outline-color: #e27440;
+}
+
+.popup-add-book input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 5px 0;
+}
+.popup-add-book .checkbox-label {
+  line-height: 20px;
+}
+
+.popup-add-book .button-container {
+  display: flex;
+}
+.popup-add-book .button-container button {
+  flex: 1;
+  gap: 5px;
+  font-size: 16px;
+  margin: 10px 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+.popup-add-book .button-container button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+.popup-add-book .button-container .submit-button {
+  background-color: #e27440;
+  color: white;
+}
+
+.popup-delete-container {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.popup-delete-container.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-delete {
+  min-width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 999;
+}
+
+.popup-delete h4 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+.popup-delete .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-delete button {
+  margin: 10px;
+  padding: 10px;
+  min-width: 100px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.popup-delete button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+.popup-delete button:nth-child(2) {
+  background-color: #e27440;
+  color: #fff;
+}
+
+@media screen and (max-width: 668px) {
+  body {
+    padding: 0 5%;
+  }
+
+  main ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .popup-add-book .popup-container {
+    width: 80%;
+  }
+}

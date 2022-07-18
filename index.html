@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Erastus H.S" />
+    <meta name="description" content="Simple Bookshelf for submission dicoding" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id="favicon" rel="shortcut icon" href="assets/img/logo.png" type="image/x-png" />
+
+    <title>My Bookshelf</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/img/favicon.png" alt="icon" height="50px" />
+        <h2>My Book Shelf</h2>
+        <img class="flip" src="assets/img/favicon.png" alt="icon" height="50px" />
+      </div>
+      <nav>
+        <div class="action">
+          <button class="reading-button active">Reading</button>
+          <button class="complete-button">Complete</button>
+        </div>
+      </nav>
+      <div class="search-bar">
+        <label class="search-input-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" name="search" id="search-input" placeholder="Search by title" />
+        </label>
+      </div>
+    </header>
+    <main>
+      <div class="container-reading">
+        <ul class="book-list-reading" id="book-list-reading"></ul>
+      </div>
+
+      <div class="container-complete" hidden>
+        <ul class="book-list-complete" id="book-list-complete"></ul>
+      </div>
+    </main>
+    <div>
+      <nav>
+        <div class="add-book-container"><button class="add-book active">Add Book</button><br /></div>
+      </nav>
+    </div>
+
+    <div class="popup-add-book">
+      <div class="bg-close add-close"></div>
+      <div class="popup-container">
+        <h1>Add Book</h1>
+        <form class="form" action="#" id="form">
+          <label for="title-field">Title</label><br />
+          <input type="text" id="title-field" placeholder="Ex: Sherlock Holmes" required autofocus /><br />
+
+          <label for="author-field">Author</label><br />
+          <input type="text" id="author-field" placeholder="Ex: Sir Arthur Conan Doyle" required /><br />
+
+          <label for="year-field">Publised Year</label><br />
+          <input type="number" min="1800" max="2025" id="year-field" placeholder="Ex: 1887" required /><br />
+          <label>
+            <input type="checkbox" name="finished-read" id="finished-read-checkbox" />
+          </label>
+          <label for="finished-read-checkbox" id="checkbox-label" class="checkbox-label">Finished reading</label><br />
+
+          <div class="button-container">
+            <button class="submit-button" type="submit">Save</button>
+            <button class="cancel-button" id="cancel-button" type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup-delete-container">
+      <div class="bg-close del-close"></div>
+      <div class="popup-delete">
+        <h4>Are you sure to remove this book from the list?</h4>
+        <div class="buttons">
+          <button class="cancel-del">Cancel</button>
+          <button class="ok-del">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="pop"></div>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
