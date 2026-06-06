@@ -179,9 +179,19 @@
           <label for="author-field" class="form-label">Author</label>
           <span class="form-error">Please enter the author name</span>
         </div>
-        <div class="form-group">
-          <input type="number" id="year-field" class="form-input" placeholder="2024" min="1000" max="2026" required />
-          <label for="year-field" class="form-label">Published Year</label>
+        <div class="form-group year-picker-group">
+          <div class="year-picker-wrapper">
+            <input type="text" inputmode="numeric" id="year-field" class="form-input year-input" placeholder="2024" autocomplete="off" required />
+            <label for="year-field" class="form-label">Published Year</label>
+            <button type="button" class="year-toggle" aria-label="Open year picker" id="year-toggle-btn">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M3 5l3 3 3-3" />
+              </svg>
+            </button>
+            <div class="year-dropdown" id="year-dropdown">
+              <div class="year-dropdown-inner" id="year-dropdown-inner"></div>
+            </div>
+          </div>
           <span class="form-error">Please enter a valid year</span>
         </div>
         <div class="form-group form-group-check">
@@ -218,6 +228,17 @@
       </div>
     </div>
   </dialog>
+
+  <footer class="footer">
+    <p class="footer-text">
+      Built with
+      <svg class="footer-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+      by
+      <a href="https://erastushs.netlify.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Erastus HS</a>
+    </p>
+  </footer>
 
   <script type="module" src="assets/js/app.js"></script>
 </body>

@@ -113,6 +113,90 @@ function initTheme() {
   }
 }
 
+function setupYearPicker() {
+  const yearInput = document.getElementById('year-field');
+  const toggleBtn = document.getElementById('year-toggle-btn');
+  const dropdown = document.getElementById('year-dropdown');
+  const dropdownInner = document.getElementById('year-dropdown-inner');
+
+  if (!yearInput || !toggleBtn || !dropdown || !dropdownInner) return;
+
+  const currentYear = new Date().getFullYear();
+  const startYear = 1900;
+
+  for (let y = currentYear + 1; y >= startYear; y--) {
+    const opt = document.createElement('div');
+    opt.className = 'year-option';
+    opt.textContent = y;
+    opt.setAttribute('data-year', y);
+    opt.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      yearInput.value = y;
+      opt.classList.add('selected');
+      closeDropdown();
+    });
+    dropdownInner.appendChild(opt);
+  }
+
+  function openDropdown() {
+    dropdown.classList.add('open');
+    toggleBtn.classList.add('open');
+
+    const currentVal = parseInt(yearInput.value, 10);
+    if (currentVal) {
+      const selected = dropdownInner.querySelector(`[data-year="${currentVal}"]`);
+      if (selected) {
+        selected.classList.add('selected');
+        selected.scrollIntoView({ block: 'center' });
+      }
+    }
+  }
+
+  function closeDropdown() {
+    dropdown.classList.remove('open');
+    toggleBtn.classList.remove('open');
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (dropdown.classList.contains('open')) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  yearInput.addEventListener('focus', () => {
+    if (!dropdown.classList.contains('open')) {
+      openDropdown();
+    }
+  });
+
+  yearInput.addEventListener('input', () => {
+    dropdownInner.querySelectorAll('.year-option').forEach((el) => el.classList.remove('selected'));
+    const val = parseInt(yearInput.value, 10);
+    if (val) {
+      const match = dropdownInner.querySelector(`[data-year="${val}"]`);
+      if (match) {
+        match.classList.add('selected');
+        match.scrollIntoView({ block: 'center' });
+      }
+    }
+  });
+
+  yearInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!yearInput.parentElement.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+}
+
 function setupModals() {
   document.querySelectorAll('[data-close-modal]').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -182,6 +266,8 @@ function init() {
   addBookForm.addEventListener('submit', handleAddBook);
 
   setupModals();
+
+  setupYearPicker();
 
   onChange(refreshUI);
   refreshUI();
