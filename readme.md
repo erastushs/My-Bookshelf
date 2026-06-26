@@ -13,6 +13,6 @@
 - menambahkan fitur edit
 - menambahkan fitur favorit
 
-© 2022 Erastus HS
+© 2026 Erastus HS
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
